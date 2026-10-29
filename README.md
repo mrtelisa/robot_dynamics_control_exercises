@@ -1,24 +1,24 @@
-# Exercises for RDC course
+# Robot Dynamics and Control: Exercises
 
-## First exercise session
-### es1
-In the first exercise it is implemented a Sping-Mass-Damper system with two masses.   
-Two PID controllers generate forces to reach the desired positions for the two masses.
+Exercises from the lab sessions of the Robot Dynamics and Control course: modelling and control of simple mechanical systems and of 1R and 2R robots in MATLAB/Simulink with **Simscape Multibody**.
 
-### es2
-This exercise only contains a 2R robot, a sort of base model that can be modified for further implementations.
+> Lab exercises of the Robot Dynamics and Control course (1st year, 2nd semester), MSc Robotics Engineering, University of Genoa. The graded assignments are in [robot_gravity_compensation](https://github.com/mrtelisa/robot_gravity_compensation), [newton_euler_dynamics](https://github.com/mrtelisa/newton_euler_dynamics) and [robot_dynamic_control](https://github.com/mrtelisa/robot_dynamic_control).
 
-### es3
-In **es3_1R** there is a robot with only 1 link standing still thanks to an algorithm for gravity compensation.  
-**es3_2R** has the same goal of the other exercise, but the robot in this case has 2 joints.
+## Content
 
-## Second exercise session
-### es4
-In **ex4_OL** there is implemented the Newton Euler recursive method to control the 2R robot movement, while in the file **ex4_CL** the system introduces a PD controller on position and velocity.
+| Session | Exercise | Content |
+|---|---|---|
+| **1** (`Es1/`) | `es1` | Two-mass spring-mass-damper system, with two PID controllers that bring the masses to the desired positions |
+| | `es2` | Base model of a 2R robot, used in the following exercises |
+| | `es3_1R`, `es3_2R` | Gravity compensation: a 1R and a 2R robot held still by compensating their weight |
+| **2** (`Es2/`) | `es4_OL` | Recursive Newton-Euler algorithm driving the 2R robot in open loop |
+| | `es4_CL` | Same, with a PD controller on position and velocity (closed loop) |
+| **3** (`Es3/`) | `es5_PD_GC` | PD control with gravity compensation |
+| | `es5_CT` | Computed torque control, with three blocks computing the A, B and C matrices of the dynamic model |
+| | `es6_NE` | Computed torque control using the Newton-Euler algorithm for the robot dynamics. The result is equivalent to the closed-loop Newton-Euler of `es4_CL` |
 
-## Third exercise session
-### es5
-In **es5_PD_GC** the movement of the 2R robot is computed using a PD controller + a block for compensating the gravity. In **es5_CT** is implemented the same exercise, but is used the Computed Torque method, that includes using 3 specific blocks for calculating A, B and C matrices.
+Each folder contains the Simulink models, the initialization scripts (`init_robot*.m`, `load_param_and_robot*.m`) and the slides of the session.
 
-### es6
-This exercise required to implement the Computed Torque method using Newton - Euler algorithm. Turned out this is equal to the case of Newton - Euler with closed loop.
+## Usage
+
+Requires MATLAB with Simulink and Simscape Multibody. Run the initialization script of an exercise, then open and run its `.slx` model.
